@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Óscar García Franco - Microsoft Certified Trainer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --ms-blue: #0078D4;
+            --ms-dark: #1B1F23;
+            --ms-light: #F3F2F1;
+            --accent: #00BCF2;
+            --text-dark: #323130;
+            --text-light: #605E5C;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--ms-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--ms-blue) 0%, var(--accent) 100%);
+            color: white;
+            padding: 80px 20px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="2" height="2" fill="white" opacity="0.1"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .mct-badge {
+            display: inline-block;
+            background: white;
+            color: var(--ms-blue);
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            opacity: 0.95;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .contact-item svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Main Content */
+        .main-content {
+            background: white;
+            margin: -40px auto 40px;
+            max-width: 1100px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            padding: 60px;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        h3 {
+            color: var(--ms-blue);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--accent);
+            position: relative;
+        }
+
+        h3::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--ms-blue);
+        }
+
+        /* Certifications Grid */
+        .mct-featured-badge {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: linear-gradient(135deg, rgba(0,120,212,0.1) 0%, rgba(0,188,242,0.1) 100%);
+            border: 3px solid var(--ms-blue);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 24px rgba(0,120,212,0.15);
+        }
+
+        .mct-badge-icon {
+            flex-shrink: 0;
+        }
+
+        .mct-badge-text h4 {
+            color: var(--ms-blue);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .mct-badge-text p {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .cert-card {
+            background: white;
+            padding: 25px 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .cert-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--ms-blue);
+        }
+
+        .cert-card.cert-expert::before {
+            background: linear-gradient(90deg, #8B008B, #FF1493);
+        }
+
+        .cert-card.cert-associate::before {
+            background: linear-gradient(90deg, #0078D4, #00BCF2);
+        }
+
+        .cert-card.cert-fundamentals::before {
+            background: linear-gradient(90deg, #107C10, #10893E);
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,120,212,0.2);
+            border-color: var(--ms-blue);
+        }
+
+        .cert-card:active {
+            transform: translateY(-3px);
+        }
+
+        .cert-badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            padding: 4px 12px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .cert-expert .cert-badge {
+            background: linear-gradient(135deg, #8B008B, #FF1493);
+            color: white;
+        }
+
+        .cert-associate .cert-badge {
+            background: linear-gradient(135deg, #0078D4, #00BCF2);
+            color: white;
+        }
+
+        .cert-fundamentals .cert-badge {
+            background: linear-gradient(135deg, #107C10, #10893E);
+            color: white;
+        }
+
+        .cert-code {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--ms-blue);
+            margin-bottom: 10px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .cert-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            line-height: 1.4;
+            min-height: 2.8em;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--accent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding-left: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -47px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--ms-blue);
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+
+        .timeline-header {
+            margin-bottom: 15px;
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            color: var(--ms-dark);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .company {
+            color: var(--ms-blue);
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .period {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .job-description {
+            margin-top: 15px;
+            color: var(--text-light);
+        }
+
+        .job-description ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .job-description li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(0,120,212,0.05) 0%, rgba(0,188,242,0.05) 100%);
+            border-left: 4px solid var(--ms-blue);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-top: 4px solid var(--ms-blue);
+        }
+
+        .skill-category h4 {
+            color: var(--ms-blue);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            border: 1px solid #dee2e6;
+        }
+
+        /* Education */
+        .education-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .education-year {
+            color: var(--ms-blue);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .education-title {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            margin-top: 5px;
+        }
+
+        .education-hours {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Languages */
+        .languages {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .language-item {
+            flex: 1;
+            min-width: 200px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            border-top: 4px solid var(--ms-blue);
+        }
+
+        .language-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--ms-dark);
+            margin-bottom: 8px;
+        }
+
+        .language-level {
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--ms-dark);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+            
+            .main-content {
+                padding: 30px 20px;
+                margin: -20px 20px 20px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            h3 {
+                font-size: 1.5rem;
+            }
+
+            .mct-featured-badge {
+                flex-direction: column;
+                text-align: center;
+                padding: 25px;
+            }
+
+            .mct-badge-text h4 {
+                font-size: 1.2rem;
+            }
+
+            .cert-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <div class="mct-badge">🎓 MICROSOFT CERTIFIED TRAINER</div>
+            <h1>Óscar García Franco</h1>
+            <h2>Microsoft Certified Trainer (MCT) | Consultor TI | Administrador de Sistemas</h2>
+            
+            <div class="contact-info">
+                <a href="tel:+34622015540" class="contact-item">
+                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20 10.999h2C22 5.869 18.127 2 12.99 2v2C17.052 4 20 6.943 20 10.999z"/><path d="M13 8c2.103 0 3 .897 3 3h2c0-3.225-1.775-5-5-5v2zm3.422 5.443a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.086-1.391l-4.064-3.696z"/></svg>
+                    622 01 55 40
+                </a>
+                <a href="mailto:oskarma@gmail.com" class="contact-item">
+                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 0 0 1.228 0L20 9.044 20.002 18H4z"/></svg>
+                    oskarma@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/oscargar" target="_blank" class="contact-item">
+                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="main-content">
+            
+            <!-- Certifications Section -->
+            <section id="certifications">
+                <h3>Certificaciones Microsoft</h3>
+                
+                <!-- MCT Badge destacado -->
+                <div class="mct-featured-badge">
+                    <div class="mct-badge-icon">
+                        <svg viewBox="0 0 100 100" style="width: 80px; height: 80px;">
+                            <circle cx="50" cy="50" r="45" fill="#0078D4" stroke="#00BCF2" stroke-width="3"/>
+                            <text x="50" y="45" font-family="Segoe UI" font-size="28" font-weight="bold" fill="white" text-anchor="middle">MCT</text>
+                            <text x="50" y="65" font-family="Segoe UI" font-size="10" fill="white" text-anchor="middle">Microsoft</text>
+                        </svg>
+                    </div>
+                    <div class="mct-badge-text">
+                        <h4>Microsoft Certified Trainer (MCT)</h4>
+                        <p>Certificación activa que me habilita para impartir formación oficial de Microsoft</p>
+                        <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" style="color: var(--ms-blue); font-weight: 600; text-decoration: none; margin-top: 10px; display: inline-block;">
+                            Ver Transcript Oficial →
+                        </a>
+                    </div>
+                </div>
+
+                <h4 style="color: var(--ms-blue); margin: 40px 0 20px 0; font-size: 1.3rem;">Certificaciones Técnicas (18 Certificaciones Activas)</h4>
+                
+                <div class="cert-grid">
+                    <!-- Expert Level -->
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-expert">
+                        <div class="cert-badge">EXPERT</div>
+                        <div class="cert-code">AZ-305</div>
+                        <div class="cert-name">Azure Solutions Architect Expert</div>
+                    </a>
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-expert">
+                        <div class="cert-badge">EXPERT</div>
+                        <div class="cert-code">SC-100</div>
+                        <div class="cert-name">Cybersecurity Architect Expert</div>
+                    </a>
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-expert">
+                        <div class="cert-badge">EXPERT</div>
+                        <div class="cert-code">MS-102</div>
+                        <div class="cert-name">Microsoft 365 Administrator Expert</div>
+                    </a>
+                    
+                    <!-- Associate Level - Azure -->
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-associate">
+                        <div class="cert-badge">ASSOCIATE</div>
+                        <div class="cert-code">AZ-104</div>
+                        <div class="cert-name">Azure Administrator Associate</div>
+                    </a>
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-associate">
+                        <div class="cert-badge">ASSOCIATE</div>
+                        <div class="cert-code">AZ-500</div>
+                        <div class="cert-name">Azure Security Engineer Associate</div>
+                    </a>
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-associate">
+                        <div class="cert-badge">ASSOCIATE</div>
+                        <div class="cert-code">AZ-800</div>
+                        <div class="cert-name">Windows Server Hybrid Core Infrastructure</div>
+                    </a>
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-associate">
+                        <div class="cert-badge">ASSOCIATE</div>
+                        <div class="cert-code">AZ-801</div>
+                        <div class="cert-name">Windows Server Hybrid Advanced Services</div>
+                    </a>
+                    
+                    <!-- Associate Level - Security & Identity -->
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-associate">
+                        <div class="cert-badge">ASSOCIATE</div>
+                        <div class="cert-code">SC-300</div>
+                        <div class="cert-name">Identity and Access Administrator Associate</div>
+                    </a>
+                    
+                    <!-- Associate Level - Microsoft 365 -->
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-associate">
+                        <div class="cert-badge">ASSOCIATE</div>
+                        <div class="cert-code">MS-700</div>
+                        <div class="cert-name">Teams Administrator Associate</div>
+                    </a>
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-associate">
+                        <div class="cert-badge">ASSOCIATE</div>
+                        <div class="cert-code">MD-102</div>
+                        <div class="cert-name">Endpoint Administrator Associate</div>
+                    </a>
+                    
+                    <!-- Associate Level - Power Platform -->
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-associate">
+                        <div class="cert-badge">ASSOCIATE</div>
+                        <div class="cert-code">PL-200</div>
+                        <div class="cert-name">Power Platform Functional Consultant Associate</div>
+                    </a>
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-associate">
+                        <div class="cert-badge">ASSOCIATE</div>
+                        <div class="cert-code">PL-300</div>
+                        <div class="cert-name">Power BI Data Analyst Associate</div>
+                    </a>
+                    
+                    <!-- Associate Level - Dynamics 365 -->
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-associate">
+                        <div class="cert-badge">ASSOCIATE</div>
+                        <div class="cert-code">MB-210</div>
+                        <div class="cert-name">Dynamics 365 Sales Functional Consultant</div>
+                    </a>
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-associate">
+                        <div class="cert-badge">ASSOCIATE</div>
+                        <div class="cert-code">MB-230</div>
+                        <div class="cert-name">Dynamics 365 Customer Service Functional Consultant</div>
+                    </a>
+                    
+                    <!-- Fundamentals -->
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-fundamentals">
+                        <div class="cert-badge">FUNDAMENTALS</div>
+                        <div class="cert-code">AZ-900</div>
+                        <div class="cert-name">Azure Fundamentals</div>
+                    </a>
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-fundamentals">
+                        <div class="cert-badge">FUNDAMENTALS</div>
+                        <div class="cert-code">SC-900</div>
+                        <div class="cert-name">Security Fundamentals</div>
+                    </a>
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-fundamentals">
+                        <div class="cert-badge">FUNDAMENTALS</div>
+                        <div class="cert-code">MS-900</div>
+                        <div class="cert-name">Microsoft 365 Fundamentals</div>
+                    </a>
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-fundamentals">
+                        <div class="cert-badge">FUNDAMENTALS</div>
+                        <div class="cert-code">PL-900</div>
+                        <div class="cert-name">Power Platform Fundamentals</div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experience">
+                <h3>Experiencia Profesional</h3>
+                
+                <div class="timeline">
+                    <!-- Current MCT Position -->
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div class="job-title">Instructor Microsoft Certified Trainer (MCT)</div>
+                            <div class="company">Freelance</div>
+                            <div class="period">Octubre 2022 - Actualidad</div>
+                        </div>
+                        <div class="job-description">
+                            <p><strong>Formación oficial de Microsoft en:</strong></p>
+                            <ul>
+                                <li>Centro de Referencia Nacional de Desarrollo Informático y Comunicaciones (CFTIC)</li>
+                                <li>Partners de Microsoft</li>
+                            </ul>
+                            <div class="highlight-box" style="margin-top: 15px;">
+                                <strong>Especialización:</strong> Azure Cloud, Microsoft 365, Seguridad, Power Platform, Dynamics 365
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nanfor Position -->
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div class="job-title">Instructor Microsoft Certified Trainer (MCT)</div>
+                            <div class="company">Nanfor Ibérica</div>
+                            <div class="period">Marzo 2022 - Julio 2022</div>
+                        </div>
+                        <div class="job-description">
+                            <p>Formación oficial de Microsoft en cursos MS-900, MS-700, MS-100, MS-101, PL-200, MB-210, MB-230</p>
+                            <ul>
+                                <li>Partners de Microsoft</li>
+                                <li>Centro de Referencia Nacional (CFTIC)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Current IT Consultant -->
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div class="job-title">Consultor TI</div>
+                            <div class="company">Editorial Ciudad Nueva</div>
+                            <div class="period">Noviembre 2020 - Actualidad</div>
+                        </div>
+                        <div class="job-description">
+                            <p>Gestión integral de la infraestructura informática y soporte a usuarios de la editorial</p>
+                        </div>
+                    </div>
+
+                    <!-- Systems Administrator -->
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div class="job-title">Administrador de Sistemas</div>
+                            <div class="company">G.S.C. S.L.</div>
+                            <div class="period">Octubre 2006 - Noviembre 2020</div>
+                        </div>
+                        <div class="job-description">
+                            <p><strong>Responsabilidades principales:</strong></p>
+                            <ul>
+                                <li><strong>Virtualización:</strong> Configuración y mantenimiento de sistemas Hyper-V</li>
+                                <li><strong>Active Directory:</strong> Gestión completa (DNS, DHCP, GPOs, fusión de dominios con relaciones de confianza, WSUS)</li>
+                                <li><strong>Almacenamiento:</strong> Implementación RAID, cuotas, SQL Server</li>
+                                <li><strong>Backups:</strong> Veeam Backup, Veritas Backup, PowerVault (cintas Dell)</li>
+                                <li><strong>Exchange Server:</strong> Gestión de buzones, SPF, DKIM, DMARC, OWA, móviles</li>
+                                <li><strong>Linux:</strong> Ubuntu, MySQL, MariaDB, nube privada</li>
+                                <li><strong>Web:</strong> IIS, CMS, mantenimiento de sitios web</li>
+                                <li><strong>Seguridad:</strong> Firewall, segregación de red (DMZ, inalámbrica), IDS/IPS, VPN</li>
+                                <li><strong>Desarrollo:</strong> Colaboración en aplicaciones Visual Basic .NET</li>
+                                <li><strong>Soporte:</strong> Usuarios y telefonía IP</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Previous Experience Summary -->
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div class="job-title">Operador de Sistemas y Red</div>
+                            <div class="company">Diversas empresas (PSS, IBM GSE, Sema Group, Cibernos)</div>
+                            <div class="period">1992 - 2006</div>
+                        </div>
+                        <div class="job-description">
+                            <p>Experiencia en centros de operaciones y monitorización de sistemas mainframe (MVS, OS/390, AIX, VSE) para grandes clientes como Aldeasa, IBM, y Tesorería General de la Seguridad Social</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills">
+                <h3>Competencias Técnicas</h3>
+                
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>☁️ Cloud & Microsoft 365</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Azure</span>
+                            <span class="skill-tag">Microsoft 365</span>
+                            <span class="skill-tag">Exchange</span>
+                            <span class="skill-tag">Teams</span>
+                            <span class="skill-tag">SharePoint</span>
+                            <span class="skill-tag">Entra ID</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>🔒 Seguridad & Identidad</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Azure Security</span>
+                            <span class="skill-tag">Cybersecurity</span>
+                            <span class="skill-tag">Firewall</span>
+                            <span class="skill-tag">IDS/IPS</span>
+                            <span class="skill-tag">VPN</span>
+                            <span class="skill-tag">Identity & Access</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>🖥️ Sistemas & Virtualización</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Windows Server</span>
+                            <span class="skill-tag">Active Directory</span>
+                            <span class="skill-tag">Hyper-V</span>
+                            <span class="skill-tag">VMware</span>
+                            <span class="skill-tag">Linux/Ubuntu</span>
+                            <span class="skill-tag">Hybrid Infrastructure</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>💾 Datos & Backup</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">SQL Server</span>
+                            <span class="skill-tag">MySQL/MariaDB</span>
+                            <span class="skill-tag">Veeam Backup</span>
+                            <span class="skill-tag">Veritas</span>
+                            <span class="skill-tag">RAID</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>⚡ Power Platform</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Power Apps</span>
+                            <span class="skill-tag">Power Automate</span>
+                            <span class="skill-tag">Power BI</span>
+                            <span class="skill-tag">Data Analysis</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>📊 Dynamics 365</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Sales</span>
+                            <span class="skill-tag">Customer Service</span>
+                            <span class="skill-tag">CRM</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section id="education">
+                <h3>Formación Académica</h3>
+                
+                <div class="education-item">
+                    <div class="education-year">2021</div>
+                    <div class="education-title">Curso Oficial: Administración de Sistemas Cloud Microsoft</div>
+                    <div class="education-hours">300 horas</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-year">2021</div>
+                    <div class="education-title">Curso Oficial: Administrador Experto de Microsoft 365</div>
+                    <div class="education-hours">150 horas</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-year">2021</div>
+                    <div class="education-title">Cursos Oficiales: VMware vSphere ICS y NSX ICS</div>
+                    <div class="education-hours">90 horas</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-year">2008</div>
+                    <div class="education-title">SQL Server</div>
+                    <div class="education-hours">50 horas</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-year">2007</div>
+                    <div class="education-title">Windows Server 2003</div>
+                    <div class="education-hours">300 horas</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-year">2002</div>
+                    <div class="education-title">Linux - Administración y Cliente</div>
+                    <div class="education-hours">60 horas</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-year">1989-1991</div>
+                    <div class="education-title">Técnico Especialista en Informática de Gestión</div>
+                    <div class="education-hours">CEINMARK</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-year">1988</div>
+                    <div class="education-title">B.U.P. y C.O.U.</div>
+                    <div class="education-hours">Fundación Caldeiro</div>
+                </div>
+            </section>
+
+            <!-- Languages Section -->
+            <section id="languages">
+                <h3>Idiomas</h3>
+                
+                <div class="languages">
+                    <div class="language-item">
+                        <div class="language-name">🇪🇸 Español</div>
+                        <div class="language-level">Nativo</div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-name">🇬🇧 Inglés</div>
+                        <div class="language-level">Nivel Alto (hablado y escrito)</div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-name">🇮🇹 Italiano</div>
+                        <div class="language-level">Nivel Alto (hablado y escrito)</div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Óscar García Franco - Microsoft Certified Trainer</p>
+        <p style="margin-top: 10px; opacity: 0.8; font-size: 0.9rem;">Madrid, España</p>
+    </footer>
+
+</body>
+</html>
