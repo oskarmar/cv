@@ -174,15 +174,15 @@
 
         .cert-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 25px;
             margin: 30px 0;
         }
 
         .cert-card {
             background: white;
-            padding: 25px 20px;
-            border-radius: 10px;
+            padding: 20px;
+            border-radius: 12px;
             text-align: center;
             border: 2px solid #e9ecef;
             transition: all 0.3s;
@@ -223,6 +223,13 @@
 
         .cert-card:active {
             transform: translateY(-3px);
+        }
+
+        .cert-badge-img {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 15px;
+            object-fit: contain;
         }
 
         .cert-badge {
@@ -493,7 +500,7 @@
     <!-- Hero Section -->
     <div class="hero">
         <div class="hero-content">
-            <div class="mct-badge">🎓 MICROSOFT CERTIFIED TRAINER</div>
+            <div class="mct-badge">MICROSOFT CERTIFIED TRAINER</div>
             <h1>Óscar García Franco</h1>
             <h2>Microsoft Certified Trainer (MCT) | Consultor TI | Administrador de Sistemas</h2>
             
@@ -540,108 +547,120 @@
                     </div>
                 </div>
 
-                <h4 style="color: var(--ms-blue); margin: 40px 0 20px 0; font-size: 1.3rem;">Certificaciones Técnicas (18 Certificaciones Activas)</h4>
+                <h4 style="color: var(--ms-blue); margin: 40px 0 20px 0; font-size: 1.3rem;">Certificaciones Técnicas (17 Certificaciones Activas)</h4>
                 
                 <div class="cert-grid">
                     <!-- Expert Level -->
-                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-expert">
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/credentials/f45f916f5cb0ef61" target="_blank" class="cert-card cert-expert">
+                        <img src="cv-badges/image.png" alt="Azure Solutions Architect Expert" class="cert-badge-img">
                         <div class="cert-badge">EXPERT</div>
                         <div class="cert-code">AZ-305</div>
                         <div class="cert-name">Azure Solutions Architect Expert</div>
                     </a>
-                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-expert">
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/credentials/34bf950d246ad71" target="_blank" class="cert-card cert-expert">
+                        <img src="cv-badges/image(3).png" alt="Cybersecurity Architect Expert" class="cert-badge-img">
                         <div class="cert-badge">EXPERT</div>
                         <div class="cert-code">SC-100</div>
                         <div class="cert-name">Cybersecurity Architect Expert</div>
                     </a>
-                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-expert">
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/credentials/fa4a060c9e405a6d" target="_blank" class="cert-card cert-expert">
+                        <img src="cv-badges/image(6).png" alt="Microsoft 365 Enterprise Administrator Expert" class="cert-badge-img">
                         <div class="cert-badge">EXPERT</div>
                         <div class="cert-code">MS-102</div>
                         <div class="cert-name">Microsoft 365 Administrator Expert</div>
                     </a>
                     
                     <!-- Associate Level - Azure -->
-                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-associate">
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/credentials/1d9925912c6c4f55" target="_blank" class="cert-card cert-associate">
+                        <img src="cv-badges/image(1).png" alt="Azure Administrator Associate" class="cert-badge-img">
                         <div class="cert-badge">ASSOCIATE</div>
                         <div class="cert-code">AZ-104</div>
                         <div class="cert-name">Azure Administrator Associate</div>
                     </a>
-                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-associate">
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/credentials/ed3ed97fc10d9845" target="_blank" class="cert-card cert-associate">
+                        <img src="cv-badges/image(4).png" alt="Azure Security Engineer Associate" class="cert-badge-img">
                         <div class="cert-badge">ASSOCIATE</div>
                         <div class="cert-code">AZ-500</div>
                         <div class="cert-name">Azure Security Engineer Associate</div>
                     </a>
-                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-associate">
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/credentials/67976cf811efcc7e" target="_blank" class="cert-card cert-associate">
+                        <img src="cv-badges/image(2).png" alt="Windows Server Hybrid Administrator" class="cert-badge-img">
                         <div class="cert-badge">ASSOCIATE</div>
-                        <div class="cert-code">AZ-800</div>
-                        <div class="cert-name">Windows Server Hybrid Core Infrastructure</div>
-                    </a>
-                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-associate">
-                        <div class="cert-badge">ASSOCIATE</div>
-                        <div class="cert-code">AZ-801</div>
-                        <div class="cert-name">Windows Server Hybrid Advanced Services</div>
+                        <div class="cert-code">AZ-800/801</div>
+                        <div class="cert-name">Windows Server Hybrid Administrator</div>
                     </a>
                     
                     <!-- Associate Level - Security & Identity -->
-                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-associate">
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/credentials/c1bdf476a975aa72" target="_blank" class="cert-card cert-associate">
+                        <img src="cv-badges/image(5).png" alt="Identity and Access Administrator" class="cert-badge-img">
                         <div class="cert-badge">ASSOCIATE</div>
                         <div class="cert-code">SC-300</div>
-                        <div class="cert-name">Identity and Access Administrator Associate</div>
+                        <div class="cert-name">Identity and Access Administrator</div>
                     </a>
                     
                     <!-- Associate Level - Microsoft 365 -->
-                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-associate">
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/credentials/d40cb340d5f18d86" target="_blank" class="cert-card cert-associate">
+                        <img src="cv-badges/image(7).png" alt="Teams Administrator Associate" class="cert-badge-img">
                         <div class="cert-badge">ASSOCIATE</div>
                         <div class="cert-code">MS-700</div>
                         <div class="cert-name">Teams Administrator Associate</div>
                     </a>
-                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-associate">
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/credentials/24702787918ac9fd" target="_blank" class="cert-card cert-associate">
+                        <img src="cv-badges/image(8).png" alt="Endpoint Administrator Associate" class="cert-badge-img">
                         <div class="cert-badge">ASSOCIATE</div>
                         <div class="cert-code">MD-102</div>
                         <div class="cert-name">Endpoint Administrator Associate</div>
                     </a>
                     
                     <!-- Associate Level - Power Platform -->
-                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-associate">
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/credentials/72c5d50ddaf9cc67" target="_blank" class="cert-card cert-associate">
+                        <img src="cv-badges/image(9).png" alt="Power Platform Functional Consultant" class="cert-badge-img">
                         <div class="cert-badge">ASSOCIATE</div>
                         <div class="cert-code">PL-200</div>
-                        <div class="cert-name">Power Platform Functional Consultant Associate</div>
+                        <div class="cert-name">Power Platform Functional Consultant</div>
                     </a>
-                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-associate">
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/credentials/de83d37c40b4c6ff" target="_blank" class="cert-card cert-associate">
+                        <img src="cv-badges/image(10).png" alt="Power BI Data Analyst Associate" class="cert-badge-img">
                         <div class="cert-badge">ASSOCIATE</div>
                         <div class="cert-code">PL-300</div>
                         <div class="cert-name">Power BI Data Analyst Associate</div>
                     </a>
                     
                     <!-- Associate Level - Dynamics 365 -->
-                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-associate">
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/credentials/7ce5a74c75657061" target="_blank" class="cert-card cert-associate">
+                        <img src="cv-badges/image(11).png" alt="Dynamics 365 Sales Functional Consultant" class="cert-badge-img">
                         <div class="cert-badge">ASSOCIATE</div>
                         <div class="cert-code">MB-210</div>
                         <div class="cert-name">Dynamics 365 Sales Functional Consultant</div>
                     </a>
-                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-associate">
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/credentials/68e0747c0cd53682" target="_blank" class="cert-card cert-associate">
+                        <img src="cv-badges/image(12).png" alt="Dynamics 365 Customer Service Functional Consultant" class="cert-badge-img">
                         <div class="cert-badge">ASSOCIATE</div>
                         <div class="cert-code">MB-230</div>
                         <div class="cert-name">Dynamics 365 Customer Service Functional Consultant</div>
                     </a>
                     
                     <!-- Fundamentals -->
-                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-fundamentals">
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/credentials/53a43e737d00e52f" target="_blank" class="cert-card cert-fundamentals">
+                        <img src="cv-badges/image(13).png" alt="Azure Fundamentals" class="cert-badge-img">
                         <div class="cert-badge">FUNDAMENTALS</div>
                         <div class="cert-code">AZ-900</div>
                         <div class="cert-name">Azure Fundamentals</div>
                     </a>
-                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-fundamentals">
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/credentials/57b02f8ded08a09" target="_blank" class="cert-card cert-fundamentals">
+                        <img src="cv-badges/image(15).png" alt="Security, Compliance and Identity Fundamentals" class="cert-badge-img">
                         <div class="cert-badge">FUNDAMENTALS</div>
                         <div class="cert-code">SC-900</div>
-                        <div class="cert-name">Security Fundamentals</div>
+                        <div class="cert-name">Security, Compliance and Identity Fundamentals</div>
                     </a>
-                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-fundamentals">
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/credentials/82c650be455efe10" target="_blank" class="cert-card cert-fundamentals">
+                        <img src="cv-badges/image(14).png" alt="Microsoft 365 Fundamentals" class="cert-badge-img">
                         <div class="cert-badge">FUNDAMENTALS</div>
                         <div class="cert-code">MS-900</div>
                         <div class="cert-name">Microsoft 365 Fundamentals</div>
                     </a>
-                    <a href="https://learn.microsoft.com/en-us/users/oskarma/transcript/76worhlyryy0qeo" target="_blank" class="cert-card cert-fundamentals">
+                    <a href="https://learn.microsoft.com/en-us/users/oskarma/credentials/f16530670f42f290" target="_blank" class="cert-card cert-fundamentals">
+                        <img src="cv-badges/image(16).png" alt="Power Platform Fundamentals" class="cert-badge-img">
                         <div class="cert-badge">FUNDAMENTALS</div>
                         <div class="cert-code">PL-900</div>
                         <div class="cert-name">Power Platform Fundamentals</div>
@@ -745,7 +764,7 @@
                 
                 <div class="skills-grid">
                     <div class="skill-category">
-                        <h4>☁️ Cloud & Microsoft 365</h4>
+                        <h4>Cloud & Microsoft 365</h4>
                         <div class="skill-tags">
                             <span class="skill-tag">Azure</span>
                             <span class="skill-tag">Microsoft 365</span>
@@ -757,7 +776,7 @@
                     </div>
 
                     <div class="skill-category">
-                        <h4>🔒 Seguridad & Identidad</h4>
+                        <h4>Seguridad & Identidad</h4>
                         <div class="skill-tags">
                             <span class="skill-tag">Azure Security</span>
                             <span class="skill-tag">Cybersecurity</span>
@@ -769,7 +788,7 @@
                     </div>
 
                     <div class="skill-category">
-                        <h4>🖥️ Sistemas & Virtualización</h4>
+                        <h4>Sistemas & Virtualización</h4>
                         <div class="skill-tags">
                             <span class="skill-tag">Windows Server</span>
                             <span class="skill-tag">Active Directory</span>
@@ -781,7 +800,7 @@
                     </div>
 
                     <div class="skill-category">
-                        <h4>💾 Datos & Backup</h4>
+                        <h4>Datos & Backup</h4>
                         <div class="skill-tags">
                             <span class="skill-tag">SQL Server</span>
                             <span class="skill-tag">MySQL/MariaDB</span>
@@ -792,7 +811,7 @@
                     </div>
 
                     <div class="skill-category">
-                        <h4>⚡ Power Platform</h4>
+                        <h4>Power Platform</h4>
                         <div class="skill-tags">
                             <span class="skill-tag">Power Apps</span>
                             <span class="skill-tag">Power Automate</span>
@@ -802,7 +821,7 @@
                     </div>
 
                     <div class="skill-category">
-                        <h4>📊 Dynamics 365</h4>
+                        <h4>Dynamics 365</h4>
                         <div class="skill-tags">
                             <span class="skill-tag">Sales</span>
                             <span class="skill-tag">Customer Service</span>
@@ -871,15 +890,15 @@
                 
                 <div class="languages">
                     <div class="language-item">
-                        <div class="language-name">🇪🇸 Español</div>
+                        <div class="language-name">Español</div>
                         <div class="language-level">Nativo</div>
                     </div>
                     <div class="language-item">
-                        <div class="language-name">🇬🇧 Inglés</div>
+                        <div class="language-name">Inglés</div>
                         <div class="language-level">Nivel Alto (hablado y escrito)</div>
                     </div>
                     <div class="language-item">
-                        <div class="language-name">🇮🇹 Italiano</div>
+                        <div class="language-name">Italiano</div>
                         <div class="language-level">Nivel Alto (hablado y escrito)</div>
                     </div>
                 </div>
