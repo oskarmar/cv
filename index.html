@@ -67,21 +67,59 @@
             border-radius: 50px;
             font-weight: 600;
             font-size: 0.9rem;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        /* Photo + name layout */
+        .hero-identity {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 36px;
+            margin-bottom: 12px;
+        }
+
+        .hero-photo {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            border: 4px solid rgba(255,255,255,0.85);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+            flex-shrink: 0;
+        }
+
+        .hero-name-block {
+            text-align: left;
         }
 
         .hero h1 {
             font-size: 3rem;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             font-weight: 300;
+            text-align: left;
         }
 
         .hero h2 {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 400;
-            opacity: 0.95;
-            margin-bottom: 30px;
+            opacity: 0.9;
+            margin-bottom: 0;
+            text-align: left;
+            max-width: 480px;
+        }
+
+        @media (max-width: 600px) {
+            .hero-identity {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .hero-name-block { text-align: center; }
+            .hero h1, .hero h2 { text-align: center; }
+            .hero h1 { font-size: 2rem; }
+            .hero h2 { font-size: 1rem; }
         }
 
         .contact-info {
@@ -89,7 +127,7 @@
             justify-content: center;
             gap: 30px;
             flex-wrap: wrap;
-            margin-top: 30px;
+            margin-top: 28px;
         }
 
         .contact-item {
@@ -501,17 +539,23 @@
     <div class="hero">
         <div class="hero-content">
             <div class="mct-badge">MICROSOFT CERTIFIED TRAINER</div>
-            <h1>Óscar García Franco</h1>
-            <h2>Microsoft Certified Trainer (MCT) | Consultor TI | Administrador de Sistemas</h2>
+
+            <div class="hero-identity">
+                <img src="cv-badges/photo.png" alt="Óscar García Franco" class="hero-photo">
+                <div class="hero-name-block">
+                    <h1>Óscar García Franco</h1>
+                    <h2>Microsoft Certified Trainer (MCT)<br>Consultor TI · Administrador de Sistemas</h2>
+                </div>
+            </div>
             
             <div class="contact-info">
                 <a href="tel:+34622015540" class="contact-item">
                     <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20 10.999h2C22 5.869 18.127 2 12.99 2v2C17.052 4 20 6.943 20 10.999z"/><path d="M13 8c2.103 0 3 .897 3 3h2c0-3.225-1.775-5-5-5v2zm3.422 5.443a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.086-1.391l-4.064-3.696z"/></svg>
                     622 01 55 40
                 </a>
-                <a href="mailto:oskarma@gmail.com" class="contact-item">
+                <a href="/cdn-cgi/l/email-protection#0f607c646e7d626e4f68626e6663216c6062" class="contact-item">
                     <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 0 0 1.228 0L20 9.044 20.002 18H4z"/></svg>
-                    oskarma@gmail.com
+                    <span class="__cf_email__" data-cfemail="016e726a60736c6041666c60686d2f626e6c">[email&#160;protected]</span>
                 </a>
                 <a href="https://www.linkedin.com/in/oscargar" target="_blank" class="contact-item">
                     <svg fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
@@ -909,9 +953,4 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Óscar García Franco - Microsoft Certified Trainer</p>
-        <p style="margin-top: 10px; opacity: 0.8; font-size: 0.9rem;">Madrid, España</p>
-    </footer>
-
-</body>
-</html>
+        <p>&copy; 2026 Óscar García Franco - Microsoft Certified Tr
